@@ -1,11 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fogus - Profile CV</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Prompt', 'sans-serif'],
+          },
+          colors: {
+            github: {
+              bg: '#0d1117',
+              card: '#161b22',
+              border: '#30363d',
+              text: '#c9d1d9',
+              muted: '#8b949e',
+              accent: '#3fb950',
+              accentHover: '#2ea043',
+              button: '#21262d',
+              buttonHover: '#30363d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* CSS สำหรับเอฟเฟกต์ไฟรุ้ง RGB แบบวิ่งเรื่อยๆ */
+    @keyframes rgb-rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* กรอบไฟรุ้งด้านนอก */
+    .rgb-border-wrapper {
+      position: relative;
+      border-radius: 1rem; /* 16px */
+      background: linear-gradient(60deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bf7, #7a00ff, #ff00c8, #ff0000);
+      background-size: 300% 300%;
+      animation: rgb-rainbow 6s ease infinite;
+      padding: 2px;
+    }
+
+    /* แสงฟุ้งไฟนีออน RGB ด้านหลังการ์ด */
+    .rgb-border-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 1.1rem;
+      background: linear-gradient(60deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bf7, #7a00ff, #ff00c8, #ff0000);
+      background-size: 300% 300%;
+      animation: rgb-rainbow 6s ease infinite;
+      filter: blur(12px);
+      opacity: 0.65;
+      z-index: -1;
+    }
+
+    /* เส้นขีดแนวนอนสไตล์ RGB ไฟรุ้ง */
+    .rgb-divider-h {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bf7, #7a00ff, #ff00c8, #ff0000);
+      background-size: 300% 300%;
+      animation: rgb-rainbow 6s ease infinite;
+      border: none;
+    }
+
+    /* เส้นขีดแนวตั้งสไตล์ RGB ไฟรุ้ง (กั้นระหว่างฝั่งซ้าย-ขวา) */
+    .rgb-divider-v {
+      background: linear-gradient(180deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bf7, #7a00ff, #ff00c8, #ff0000);
+      background-size: 300% 300%;
+      animation: rgb-rainbow 6s ease infinite;
+    }
+  </style>
 </head>
-<body>
-    <h1>Hello Verity</h1>
+<body class="bg-github-bg text-github-text font-sans min-h-screen p-4 md:p-8 flex items-center justify-center">
+
+  <!-- RGB RAINBOW WRAPPER (กรอบไฟรุ้ง) -->
+  <main class="w-full max-w-6xl rgb-border-wrapper shadow-2xl">
+    
+    <!-- SINGLE MAIN CARD CONTENT -->
+    <div class="bg-github-card rounded-[14px] p-6 md:p-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- INSIDE PROFILE SIDEBAR (ฝั่งซ้าย) -->
+        <div class="md:col-span-4 lg:col-span-3 flex flex-col items-center md:items-start space-y-4 relative">
+          <!-- Profile Picture (Fogust.jpg) -->
+          <div class="relative">
+            <img 
+              src="Fogust.jpg" 
+              alt="Fogus Teakayut" 
+              class="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover border border-github-border shadow-xl"
+            />
+          </div>
+
+          <!-- Names & Status (เอา Teakayut ออกแล้ว) -->
+          <div class="space-y-1 w-full text-center md:text-left">
+            <h1 class="text-2xl font-bold text-white tracking-tight">Fogus</h1>
+            <p class="text-github-accent font-medium text-sm">Student</p>
+          </div>
+
+          <!-- เส้นกั้นแนวตั้ง RGB สำหรับหน้าจอคอม (Desktop) -->
+          <div class="hidden md:block absolute -right-4 top-0 bottom-0 w-[2px] rgb-divider-v opacity-80"></div>
+        </div>
+
+        <!-- INSIDE CONTENT AREA (ฝั่งขวา) -->
+        <div class="md:col-span-8 lg:col-span-9">
+          
+          <!-- Title Section -->
+          <div class="mb-6 relative">
+            <h1 class="text-3xl sm:text-4xl font-bold text-white pb-6">
+              Hey it's me it's Teakayut Petconlacram
+            </h1>
+            <!-- เส้นขีดใต้ชื่อ RGB -->
+            <div class="rgb-divider-h"></div>
+          </div>
+
+          <!-- About Me Section -->
+          <div class="space-y-3 mb-6">
+            <h2 class="text-xl font-semibold text-white flex items-center gap-2">
+              <i class="fa-solid fa-user-astronaut text-github-accent text-base"></i>
+              <span>About Me</span>
+            </h2>
+            <p class="text-github-text leading-relaxed text-sm sm:text-base">
+              สวัสดีครับ ผมชื่อ <strong class="text-white">นายทีฆายุจ เพชรชลคราม</strong> เป็นนักเรียน/นักศึกษาที่มีความหลงใหลในการเรียนรู้เทคโนโลยีใหม่ๆ มุ่งมั่นพัฒนาทักษะด้าน IT และการเขียนโค้ดอย่างต่อเนื่อง พร้อมเปิดรับความท้าทายและการแก้ปัญหาเพื่อก้าวสู่การเป็นนักพัฒนามืออาชีพในอนาคต
+            </p>
+          </div>
+
+          <!-- Education Section (อัปเดตตามรูปภาพใหม่) -->
+          <div class="space-y-4 mb-5">
+            <h2 class="text-xl font-semibold text-white flex items-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-github-accent text-base"></i>
+              <span>Education</span>
+            </h2>
+            
+            <div class="space-y-4 border-l-2 border-github-border ml-2 pl-4">
+              <!-- 1. โรงเรียนเทศบาล 2 คลองจิหลาด -->
+              <div class="relative">
+                <div class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-github-accent"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <h3 class="text-base font-semibold text-white">โรงเรียนเทศบาล 2 คลองจิหลาด</h3>
+                  <span class="text-xs text-github-accent bg-github-accent/10 px-2.5 py-0.5 rounded-full border border-github-accent/20 w-fit">สำเร็จการศึกษา</span>
+                </div>
+                <p class="text-sm text-github-muted mt-1">ระดับมัธยมศึกษาตอนต้น</p>
+              </div>
+
+              <!-- 2. วิทยาลัยเทคนิคกระบี่ (KBTC) -->
+              <div class="relative">
+                <div class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-github-muted"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <h3 class="text-base font-semibold text-white">วิทยาลัยเทคนิคกระบี่ (KBTC)</h3>
+                  <span class="text-xs text-github-muted bg-github-button px-2.5 py-0.5 rounded-full border border-github-border w-fit">กำลังศึกษา</span>
+                </div>
+                <p class="text-sm text-github-muted mt-1">ระดับประกาศนียบัตรวิชาชีพ (ปวช.)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="space-y-1 mb-2">
+            <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+              <i class="fa-solid fa-address-book text-github-accent text-base"></i>
+              <span>Contact (ช่องทางการติดต่อ)</span>
+            </h2>
+            <div class="space-y-1 text-sm text-github-text pl-1">
+              <div class="flex items-center gap-2">
+                <i class="fa-regular fa-envelope text-github-muted"></i>
+                <a href="mailto:68219010005@kbtc.ac.th" class="text-github-accent hover:underline">68219010005@kbtc.ac.th</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="https://github.com/Teakayut" target="_blank" class="flex items-center gap-2 text-github-text hover:text-white transition-colors">
+                  <i class="fa-brands fa-github text-base"></i>
+                  <span class="text-github-accent hover:underline">https://github.com/Teakayut</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location Section -->
+          <div class="space-y-1 mb-4">
+            <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-github-accent text-base"></i>
+              <span>Location (สถานที่)</span>
+            </h2>
+            <div class="flex items-center gap-2 text-sm text-github-text pl-1">
+              <i class="fa-solid fa-map-pin text-github-muted"></i>
+              <span>Krabi, Thailand</span>
+            </div>
+          </div>
+
+          <!-- Tech Stack Badges Grid -->
+          <div class="pt-2">
+            <div class="rgb-divider-h mb-4"></div>
+            <h3 class="text-sm font-semibold text-github-muted uppercase tracking-wider mb-3">Tech Stack & Tools</h3>
+            <div class="flex flex-wrap gap-1.5">
+              <img src="https://skillicons.dev/icons?i=c,cpp,cs,java,python,go,js,ts,swift,rust,kotlin,php,lua,html,css,sass,tailwind,react,next,vue,angular,svelte,solidjs,bootstrap,nodejs,express,nest,fastapi,django,flask,dotnet,laravel,mysql,postgres,mongodb,redis,sqlite,firebase,supabase,prisma,graphql,docker,kubernetes,aws,gcp,git,github,gitlab,vscode,idea,figma,ps,ai,ae,pr,xd&perline=15" alt="Tech Stack Icons" class="max-w-full" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
 </body>
 </html>
